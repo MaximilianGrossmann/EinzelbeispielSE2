@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:scaleX="3"
         android:scaleY="3"
-        android:text="Matrikelnummer"
+        android:text="Eingabe:"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

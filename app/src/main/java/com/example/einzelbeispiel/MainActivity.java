@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.*;
+import java.net.*;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,30 +18,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        TextView resText = (TextView)findViewById(R.id.ServerResponse);
+        EditText userInp = (EditText)findViewById(R.id.UserNumberInput);
+
         Button sendReq = (Button)findViewById(R.id.SendRequestButton);
+        Button calcPrim = (Button)findViewById(R.id.CalculatePrimButton);
+
         sendReq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText userInp = (EditText)findViewById(R.id.UserNumberInput);
-
+                RequestActivity request = new RequestActivity(resText,userInp);
+                request.start();
             }
         });
-        Button calcPrim = (Button)findViewById(R.id.CalculatePrimButton);
+
         calcPrim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText calcNumber = (EditText)findViewById(R.id.UserNumberInput);
-                String numToCalc = calcNumber.getText().toString();
+                String numToCalc = userInp.getText().toString();
                 String result = "";
                 for (int i = 0; i < numToCalc.length(); i++) {
                     if (numToCalc.charAt(i) == '2' ||numToCalc.charAt(i) == '3' ||numToCalc.charAt(i) == '5' ||numToCalc.charAt(i) == '7') {
                         result += numToCalc.charAt(i);
                     }
                 }
-                TextView resText = (TextView)findViewById(R.id.ServerResponse);
-                resText.setText(result.toString());
+                resText.setText(result);
             }
         });
-
     }
 }
