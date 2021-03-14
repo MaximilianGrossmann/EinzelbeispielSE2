@@ -1,7 +1,10 @@
 package com.example.einzelbeispiel;
 
+import android.os.Looper;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import android.os.Handler;
 
 public class CalcPrim extends Thread{
     private TextView outputField;
@@ -12,16 +15,15 @@ public class CalcPrim extends Thread{
         this.outputField = textView;
     }
 
-    public void run(TextView resText, EditText userInp) {
-        String numToCalc = userInp.getText().toString();
+    @Override
+    public void run() {
+        String numToCalc = inputField.getText().toString();
         String result = "";
         for (int i = 0; i < numToCalc.length(); i++) {
             if (numToCalc.charAt(i) == '2' ||numToCalc.charAt(i) == '3' ||numToCalc.charAt(i) == '5' ||numToCalc.charAt(i) == '7') {
                 result += numToCalc.charAt(i);
             }
         }
-        resText.setText(result);
-
-
+        outputField.setText(result);
     }
 }

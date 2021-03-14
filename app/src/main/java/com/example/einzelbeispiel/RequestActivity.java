@@ -1,5 +1,6 @@
 package com.example.einzelbeispiel;
 
+import android.app.Activity;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -27,7 +28,9 @@ public class RequestActivity extends Thread{
             String number = inputField.getText().toString();
             outToServer.writeBytes(number + '\n');
             String outputNum = inFromServer.readLine();
+
             outputField.setText(outputNum);
+
             clientSocket.close();
         }
         catch (IOException e){

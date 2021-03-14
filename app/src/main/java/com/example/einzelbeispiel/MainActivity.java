@@ -35,14 +35,8 @@ public class MainActivity extends AppCompatActivity {
         calcPrim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String numToCalc = userInp.getText().toString();
-                String result = "";
-                for (int i = 0; i < numToCalc.length(); i++) {
-                    if (numToCalc.charAt(i) == '2' ||numToCalc.charAt(i) == '3' ||numToCalc.charAt(i) == '5' ||numToCalc.charAt(i) == '7') {
-                        result += numToCalc.charAt(i);
-                    }
-                }
-                resText.setText(result);
+                CalcPrim calc = new CalcPrim(resText,userInp);
+                calc.start();
             }
         });
     }
