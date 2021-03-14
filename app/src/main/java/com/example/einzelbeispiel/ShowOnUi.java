@@ -8,8 +8,9 @@ public class ShowOnUi implements Runnable{
     String print;
     TextView output;
 
-    public ShowOnUi(String res){
+    public ShowOnUi(String res, TextView out){
     this.print = res;
+    this.output = out;
     }
 
     @Override

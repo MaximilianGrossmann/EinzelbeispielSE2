@@ -24,6 +24,6 @@ public class CalcPrim extends Thread{
                 result += numToCalc.charAt(i);
             }
         }
-        outputField.setText(result);
+        new Handler(Looper.getMainLooper()).post(new ShowOnUi(result,outputField));
     }
 }
